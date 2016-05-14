@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  
+  <!-- 关于数据库连接池servlet的配置信息 
+  <servlet>
+    <servlet-name>ServletConfigurator</servlet-name>
+    <servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+    <init-param>
+      <param-name>xmlFile</param-name>
+      <param-value>WEB-INF/db.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  -->
+  
+  <!-- 对请求的字符集进行转换 -->
+  <filter>
+    <filter-name>CharFilter</filter-name>
+    <filter-class>com.shuangyulin.servlet.CharFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 系统登陆的servlet配置信息 -->
+  <servlet>
+	<servlet-name>CheckLogin</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.CheckLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>CheckLogin</servlet-name>
+	<url-pattern>/CheckLogin</url-pattern>
+  </servlet-mapping>
+  <!-- 商品类别信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>GoodClassManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.GoodClassManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>GoodClassManage</servlet-name>
+	<url-pattern>/GoodInfo/GoodClassManage</url-pattern>
+  </servlet-mapping>
+    <!-- 商品信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>GoodInfoManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.GoodInfoManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>GoodInfoManage</servlet-name>
+	<url-pattern>/GoodInfo/GoodInfoManage</url-pattern>
+  </servlet-mapping>
+  <!-- 员工信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>EmployeeInfoManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.EmployeeInfoManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>EmployeeInfoManage</servlet-name>
+	<url-pattern>/Admin/EmployeeInfoManage</url-pattern>
+  </servlet-mapping>
+ 
+   <!-- 进货信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>BuyInfoManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.BuyInfoManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BuyInfoManage</servlet-name>
+	<url-pattern>/BuyInfo/BuyInfoManage</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 进货退货信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>BuyBackInfoManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.BuyBackInfoManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BuyBackInfoManage</servlet-name>
+	<url-pattern>/BuyBackInfo/BuyBackInfoManage</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 销售信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>SellInfoManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.SellInfoManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>SellInfoManage</servlet-name>
+	<url-pattern>/SellInfo/SellInfoManage</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 销售退货信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>SellBackInfoManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.SellBackInfoManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>SellBackInfoManage</servlet-name>
+	<url-pattern>/SellBackInfo/SellBackInfoManage</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 商品库存信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>GoodStockManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.GoodStockManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>GoodStockManage</servlet-name>
+	<url-pattern>/GoodStockInfo/GoodStockManage</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 商品购物车信息管理的servlet配置 -->
+   <servlet>
+	<servlet-name>GoodCartManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.GoodCartManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>GoodCartManage</servlet-name>
+	<url-pattern>/SellInfo/GoodCartManage</url-pattern>
+  </servlet-mapping>
+  <!-- 供应商管理的servlet配置 -->
+   <servlet>
+	<servlet-name>SupplierManage</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.SupplierManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>SupplierManage</servlet-name>
+	<url-pattern>/Admin/SupplierManage</url-pattern>
+  </servlet-mapping>
+  
+    <!-- 密码管理的servlet配置 -->
+   <servlet>
+	<servlet-name>ChangePasswordServlet</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.ChangePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>ChangePasswordServlet</servlet-name>
+	<url-pattern>/Admin/ChangePasswordServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+	<servlet-name>ChangePasswordServlet</servlet-name>
+	<url-pattern>/Employee/ChangePasswordServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 取得某个商品信息的servlet配置:用于ajax技术 -->
+   <servlet>
+	<servlet-name>GetGoodInfo</servlet-name>
+	<servlet-class>com.shuangyulin.servlet.GetGoodInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>GetGoodInfo</servlet-name>
+	<url-pattern>/BuyBackInfo/GetGoodInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+	<servlet-name>GetGoodInfo</servlet-name>
+	<url-pattern>/BuyInfo/GetGoodInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+	<servlet-name>GetGoodInfo</servlet-name>
+	<url-pattern>/SellBackInfo/GetGoodInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+	<servlet-name>GetGoodInfo</servlet-name>
+	<url-pattern>/SellInfo/GetGoodInfo</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- 设置web工程启动首页为登陆页面 -->
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

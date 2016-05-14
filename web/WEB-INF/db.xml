@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<proxool>
+<alias>xml-test</alias>
+<!--  
+<driver-url>jdbc:odbc:SuperMarket</driver-url>
+<driver-class>sun.jdbc.odbc.JdbcOdbcDriver</driver-class>
+-->
+<driver-url>jdbc:mysql://localhost:3306/SuperMarket?useUnicode=true&amp;characterEncoding=gbk</driver-url>
+<driver-class>com.mysql.jdbc.Driver</driver-class>
+<statistics>1m,15m,1d</statistics>
+<driver-properties>
+<property name="user" value="root"/>
+<property name="password" value="123"/>
+</driver-properties>
+<maximum-connection-count>100</maximum-connection-count>
+<minimum-connection-count>25</minimum-connection-count>
+<maximum-active-time>80000</maximum-active-time>
+<house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+</proxool>
+
