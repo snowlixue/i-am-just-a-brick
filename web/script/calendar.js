@@ -1,82 +1,82 @@
 /**//**
- *±¾ÈÕÀúÑ¡Ôñ¿Ø¼şÓÉtiannet¸ù¾İÇ°ÈË¾­ÑéÍêÉÆ¶øµÃ¡£´ó²¿·Ö´úÂëÀ´×ÔmeizzµÄÈÕÀú¿Ø¼ş¡£
- *tiannetÌí¼ÓÁËÊ±¼äÑ¡Ôñ¹¦ÄÜ¡¢select,object±êÇ©Òş²Ø¹¦ÄÜ£¬»¹ÓĞÆäËüĞ¡¹¦ÄÜ¡£
- *Ê¹ÓÃ·½·¨£º
- * (1)Ö»Ñ¡ÔñÈÕÆÚ   <input type="text" name="date"   readOnly onClick="setDay(this);">
- * (2)Ñ¡ÔñÈÕÆÚºÍĞ¡Ê±  <input type="text" name="dateh"  readOnly onClick="setDayH(this);">
- * (3)Ñ¡ÔñÈÕÆÚºÍĞ¡Ê±¼°·ÖÖÓ <input type="text" name="datehm" readOnly onClick="setDayHM(this);">
- *ÉèÖÃ²ÎÊıµÄ·½·¨
- * (1)ÉèÖÃÈÕÆÚ·Ö¸ô·û    setDateSplit(strSplit);Ä¬ÈÏÎª"-"
- * (2)ÉèÖÃÈÕÆÚÓëÊ±¼äÖ®¼äµÄ·Ö¸ô·û  setDateTimeSplit(strSplit);Ä¬ÈÏÎª" "
- * (3)ÉèÖÃÊ±¼ä·Ö¸ô·û    setTimeSplit(strSplit);Ä¬ÈÏÎª":"
- * (4)ÉèÖÃ(1),(2),(3)ÖĞµÄ·Ö¸ô·û  setSplit(strDateSplit,strDateTimeSplit,strTimeSplit);
- * (5)ÉèÖÃ¿ªÊ¼ºÍ½áÊøÄê·İ    setYearPeriod(intDateBeg,intDateEnd)
- *ËµÃ÷£º
- * Ä¬ÈÏ·µ»ØµÄÈÕÆÚÊ±¼ä¸ñÊ½ÈçÍ¬£º2005-02-02 08:08
+ *æœ¬æ—¥å†é€‰æ‹©æ§ä»¶ç”±tiannetæ ¹æ®å‰äººç»éªŒå®Œå–„è€Œå¾—ã€‚å¤§éƒ¨åˆ†ä»£ç æ¥è‡ªmeizzçš„æ—¥å†æ§ä»¶ã€‚
+ *tiannetæ·»åŠ äº†æ—¶é—´é€‰æ‹©åŠŸèƒ½ã€select,objectæ ‡ç­¾éšè—åŠŸèƒ½ï¼Œè¿˜æœ‰å…¶å®ƒå°åŠŸèƒ½ã€‚
+ *ä½¿ç”¨æ–¹æ³•ï¼š
+ * (1)åªé€‰æ‹©æ—¥æœŸ   <input type="text" name="date"   readOnly onClick="setDay(this);">
+ * (2)é€‰æ‹©æ—¥æœŸå’Œå°æ—¶  <input type="text" name="dateh"  readOnly onClick="setDayH(this);">
+ * (3)é€‰æ‹©æ—¥æœŸå’Œå°æ—¶åŠåˆ†é’Ÿ <input type="text" name="datehm" readOnly onClick="setDayHM(this);">
+ *è®¾ç½®å‚æ•°çš„æ–¹æ³•
+ * (1)è®¾ç½®æ—¥æœŸåˆ†éš”ç¬¦    setDateSplit(strSplit);é»˜è®¤ä¸º"-"
+ * (2)è®¾ç½®æ—¥æœŸä¸æ—¶é—´ä¹‹é—´çš„åˆ†éš”ç¬¦  setDateTimeSplit(strSplit);é»˜è®¤ä¸º" "
+ * (3)è®¾ç½®æ—¶é—´åˆ†éš”ç¬¦    setTimeSplit(strSplit);é»˜è®¤ä¸º":"
+ * (4)è®¾ç½®(1),(2),(3)ä¸­çš„åˆ†éš”ç¬¦  setSplit(strDateSplit,strDateTimeSplit,strTimeSplit);
+ * (5)è®¾ç½®å¼€å§‹å’Œç»“æŸå¹´ä»½    setYearPeriod(intDateBeg,intDateEnd)
+ *è¯´æ˜ï¼š
+ * é»˜è®¤è¿”å›çš„æ—¥æœŸæ—¶é—´æ ¼å¼å¦‚åŒï¼š2005-02-02 08:08
  */
-//------------------ ÑùÊ½¶¨Òå ---------------------------//
-//¹¦ÄÜ°´Å¥Í¬ÑùÑùÊ½
+//------------------ æ ·å¼å®šä¹‰ ---------------------------//
+//åŠŸèƒ½æŒ‰é’®åŒæ ·æ ·å¼
 
 
 
 
 var s_tiannet_turn_base = "height:16px;font-size:9pt;color:white;border:0 solid #CCCCCC;cursor:hand;background-color:#2650A6;";
-//·­Äê¡¢ÔÂµÈµÄ°´Å¥
+//ç¿»å¹´ã€æœˆç­‰çš„æŒ‰é’®
 var s_tiannet_turn = "width:28px;" + s_tiannet_turn_base;
-//¹Ø±Õ¡¢Çå¿ÕµÈ°´Å¥ÑùÊ½
+//å…³é—­ã€æ¸…ç©ºç­‰æŒ‰é’®æ ·å¼
 var s_tiannet_turn2 = "width:22px;" + s_tiannet_turn_base;
-//ÄêÑ¡ÔñÏÂÀ­¿ò
+//å¹´é€‰æ‹©ä¸‹æ‹‰æ¡†
 var s_tiannet_select = "width:64px;display:none;";
-//ÔÂ¡¢Ê±¡¢·ÖÑ¡ÔñÏÂÀ­¿ò
+//æœˆã€æ—¶ã€åˆ†é€‰æ‹©ä¸‹æ‹‰æ¡†
 var s_tiannet_select2 = "width:46px;display:none;";
-//ÈÕÆÚÑ¡Ôñ¿Ø¼şÌåµÄÑùÊ½
+//æ—¥æœŸé€‰æ‹©æ§ä»¶ä½“çš„æ ·å¼
 var s_tiannet_body = "width:150;background-color:#2650A6;display:none;z-index:9998;position:absolute;" +
   "border-left:1 solid #CCCCCC;border-top:1 solid #CCCCCC;border-right:1 solid #999999;border-bottom:1 solid #999999;";
-//ÏÔÊ¾ÈÕµÄtdµÄÑùÊ½
+//æ˜¾ç¤ºæ—¥çš„tdçš„æ ·å¼
 var s_tiannet_day = "width:21px;height:20px;background-color:#D8F0FC;font-size:10pt;";
-//×ÖÌåÑùÊ½
+//å­—ä½“æ ·å¼
 var s_tiannet_font = "color:#FFCC00;font-size:9pt;cursor:hand;";
-//Á´½ÓµÄÑùÊ½
+//é“¾æ¥çš„æ ·å¼
 var s_tiannet_link = "text-decoration:none;font-size:9pt;color:#2650A6;";
-//ºáÏß
+//æ¨ªçº¿
 var s_tiannet_line = "border-bottom:1 solid #6699CC";
-//------------------ ±äÁ¿¶¨Òå ---------------------------//
-var tiannetYearSt = 1950;//¿ÉÑ¡ÔñµÄ¿ªÊ¼Äê·İ
-var tiannetYearEnd = 2010;//¿ÉÑ¡ÔñµÄ½áÊøÄê·İ
+//------------------ å˜é‡å®šä¹‰ ---------------------------//
+var tiannetYearSt = 1950;//å¯é€‰æ‹©çš„å¼€å§‹å¹´ä»½
+var tiannetYearEnd = 2010;//å¯é€‰æ‹©çš„ç»“æŸå¹´ä»½
 var tiannetDateNow = new Date();
-var tiannetYear = tiannetDateNow.getFullYear(); //¶¨ÒåÄêµÄ±äÁ¿µÄ³õÊ¼Öµ
-var tiannetMonth = tiannetDateNow.getMonth()+1; //¶¨ÒåÔÂµÄ±äÁ¿µÄ³õÊ¼Öµ
+var tiannetYear = tiannetDateNow.getFullYear(); //å®šä¹‰å¹´çš„å˜é‡çš„åˆå§‹å€¼
+var tiannetMonth = tiannetDateNow.getMonth()+1; //å®šä¹‰æœˆçš„å˜é‡çš„åˆå§‹å€¼
 var tiannetDay = tiannetDateNow.getDate();
 var tiannetHour = 8;//tiannetDateNow.getHours();
 var tiannetMinute = 0;//tiannetDateNow.getMinutes();
-var tiannetArrDay=new Array(42);          //¶¨ÒåĞ´ÈÕÆÚµÄÊı×é
-var tiannetDateSplit = "-";     //ÈÕÆÚµÄ·Ö¸ô·ûºÅ
-var tiannetDateTimeSplit = " ";    //ÈÕÆÚÓëÊ±¼äÖ®¼äµÄ·Ö¸ô·û
-var tiannetTimeSplit = ":";     //Ê±¼äµÄ·Ö¸ô·ûºÅ
-var tiannetOutObject;      //½ÓÊÕÈÕÆÚÊ±¼äµÄ¶ÔÏó
-var arrTiannetHide = new Array();//±»Ç¿ÖÆÒş²ØµÄ±êÇ©
-var m_bolShowHour = false;//ÊÇ·ñÏÔÊ¾Ğ¡Ê±
-var m_bolShowMinute = false;//ÊÇ·ñÏÔÊ¾·ÖÖÓ
+var tiannetArrDay=new Array(42);          //å®šä¹‰å†™æ—¥æœŸçš„æ•°ç»„
+var tiannetDateSplit = "-";     //æ—¥æœŸçš„åˆ†éš”ç¬¦å·
+var tiannetDateTimeSplit = " ";    //æ—¥æœŸä¸æ—¶é—´ä¹‹é—´çš„åˆ†éš”ç¬¦
+var tiannetTimeSplit = ":";     //æ—¶é—´çš„åˆ†éš”ç¬¦å·
+var tiannetOutObject;      //æ¥æ”¶æ—¥æœŸæ—¶é—´çš„å¯¹è±¡
+var arrTiannetHide = new Array();//è¢«å¼ºåˆ¶éšè—çš„æ ‡ç­¾
+var m_bolShowHour = false;//æ˜¯å¦æ˜¾ç¤ºå°æ—¶
+var m_bolShowMinute = false;//æ˜¯å¦æ˜¾ç¤ºåˆ†é’Ÿ
 
-var m_aMonHead = new Array(12);         //¶¨ÒåÑôÀúÖĞÃ¿¸öÔÂµÄ×î´óÌìÊı
+var m_aMonHead = new Array(12);         //å®šä¹‰é˜³å†ä¸­æ¯ä¸ªæœˆçš„æœ€å¤§å¤©æ•°
     m_aMonHead[0] = 31; m_aMonHead[1] = 28; m_aMonHead[2] = 31; m_aMonHead[3] = 30; m_aMonHead[4]  = 31; m_aMonHead[5]  = 30;
     m_aMonHead[6] = 31; m_aMonHead[7] = 31; m_aMonHead[8] = 30; m_aMonHead[9] = 31; m_aMonHead[10] = 30; m_aMonHead[11] = 31;
-// ---------------------- ÓÃ»§¿Éµ÷ÓÃµÄº¯Êı -----------------------------//
-//ÓÃ»§Ö÷µ÷º¯Êı£­Ö»Ñ¡ÔñÈÕÆÚ
+// ---------------------- ç”¨æˆ·å¯è°ƒç”¨çš„å‡½æ•° -----------------------------//
+//ç”¨æˆ·ä¸»è°ƒå‡½æ•°ï¼åªé€‰æ‹©æ—¥æœŸ
 function setDay(obj){
  tiannetOutObject = obj;
- //Èç¹û±êÇ©ÖĞÓĞÖµ£¬Ôò½«ÈÕÆÚ³õÊ¼»¯Îªµ±Ç°Öµ
+ //å¦‚æœæ ‡ç­¾ä¸­æœ‰å€¼ï¼Œåˆ™å°†æ—¥æœŸåˆå§‹åŒ–ä¸ºå½“å‰å€¼
  var strValue = tiannetTrim(tiannetOutObject.value);
  if( strValue != "" ){
   tiannetInitDate(strValue);
  }
  tiannetPopCalendar();
 }
-//ÓÃ»§Ö÷µ÷º¯Êı£­Ñ¡ÔñÈÕÆÚºÍĞ¡Ê±
+//ç”¨æˆ·ä¸»è°ƒå‡½æ•°ï¼é€‰æ‹©æ—¥æœŸå’Œå°æ—¶
 function setDayH(obj){
  tiannetOutObject = obj;
  m_bolShowHour = true;
- //Èç¹û±êÇ©ÖĞÓĞÖµ£¬Ôò½«ÈÕÆÚºÍĞ¡Ê±³õÊ¼»¯Îªµ±Ç°Öµ
+ //å¦‚æœæ ‡ç­¾ä¸­æœ‰å€¼ï¼Œåˆ™å°†æ—¥æœŸå’Œå°æ—¶åˆå§‹åŒ–ä¸ºå½“å‰å€¼
  var strValue = tiannetTrim(tiannetOutObject.value);
  if( strValue != "" ){
   tiannetInitDate(strValue.substring(0,10));
@@ -85,12 +85,12 @@ function setDayH(obj){
  }
  tiannetPopCalendar();
 }
-//ÓÃ»§Ö÷µ÷º¯Êı£­Ñ¡ÔñÈÕÆÚºÍĞ¡Ê±¼°·ÖÖÓ
+//ç”¨æˆ·ä¸»è°ƒå‡½æ•°ï¼é€‰æ‹©æ—¥æœŸå’Œå°æ—¶åŠåˆ†é’Ÿ
 function setDayHM(obj){
  tiannetOutObject = obj;
  m_bolShowHour = true;
  m_bolShowMinute = true;
- //Èç¹û±êÇ©ÖĞÓĞÖµ£¬Ôò½«ÈÕÆÚºÍĞ¡Ê±¼°·ÖÖÓ³õÊ¼»¯Îªµ±Ç°Öµ
+ //å¦‚æœæ ‡ç­¾ä¸­æœ‰å€¼ï¼Œåˆ™å°†æ—¥æœŸå’Œå°æ—¶åŠåˆ†é’Ÿåˆå§‹åŒ–ä¸ºå½“å‰å€¼
  var strValue = tiannetTrim(tiannetOutObject.value);
  if( strValue != "" ){
   tiannetInitDate(strValue.substring(0,10));
@@ -103,103 +103,103 @@ function setDayHM(obj){
  }
  tiannetPopCalendar();
 }
-//ÉèÖÃ¿ªÊ¼ÈÕÆÚºÍ½áÊøÈÕÆÚ
+//è®¾ç½®å¼€å§‹æ—¥æœŸå’Œç»“æŸæ—¥æœŸ
 function  setYearPeriod(intDateBeg,intDateEnd){
  tiannetYearSt = intDateBeg;
  tiannetYearEnd = intDateEnd;
 }
-//ÉèÖÃÈÕÆÚ·Ö¸ô·û¡£Ä¬ÈÏÎª"-"
+//è®¾ç½®æ—¥æœŸåˆ†éš”ç¬¦ã€‚é»˜è®¤ä¸º"-"
 function setDateSplit(strDateSplit){
  tiannetDateSplit = strDateSplit;
 }
-//ÉèÖÃÈÕÆÚÓëÊ±¼äÖ®¼äµÄ·Ö¸ô·û¡£Ä¬ÈÏÎª" "
+//è®¾ç½®æ—¥æœŸä¸æ—¶é—´ä¹‹é—´çš„åˆ†éš”ç¬¦ã€‚é»˜è®¤ä¸º" "
 function setDateTimeSplit(strDateTimeSplit){
  tiannetDateTimeSplit = strDateTimeSplit;
 }
-//ÉèÖÃÊ±¼ä·Ö¸ô·û¡£Ä¬ÈÏÎª":"
+//è®¾ç½®æ—¶é—´åˆ†éš”ç¬¦ã€‚é»˜è®¤ä¸º":"
 function setTimeSplit(strTimeSplit){
  tiannetTimeSplit = strTimeSplit;
 }
-//ÉèÖÃ·Ö¸ô·û
+//è®¾ç½®åˆ†éš”ç¬¦
 function setSplit(strDateSplit,strDateTimeSplit,strTimeSplit){
  tiannetDateSplit(strDateSplit);
  tiannetDateTimeSplit(strDateTimeSplit);
  tiannetTimeSplit(strTimeSplit);
 }
-//ÉèÖÃÄ¬ÈÏµÄÈÕÆÚ¡£¸ñÊ½Îª£ºYYYY-MM-DD
+//è®¾ç½®é»˜è®¤çš„æ—¥æœŸã€‚æ ¼å¼ä¸ºï¼šYYYY-MM-DD
 function setDefaultDate(strDate){
  tiannetYear = strDate.substring(0,4);
  tiannetMonth = strDate.substring(5,7);
  tiannetDay = strDate.substring(8,10);
 }
-//ÉèÖÃÄ¬ÈÏµÄÊ±¼ä¡£¸ñÊ½Îª£ºHH24:MI
+//è®¾ç½®é»˜è®¤çš„æ—¶é—´ã€‚æ ¼å¼ä¸ºï¼šHH24:MI
 function setDefaultTime(strTime){
  tiannetHour = strTime.substring(0,2);
  tiannetMinute = strTime.substring(3,5);
 }
-// ---------------------- end ÓÃ»§¿Éµ÷ÓÃµÄº¯Êı -----------------------------//
-//------------------ begin Ò³ÃæÏÔÊ¾²¿·Ö ---------------------------//
-var weekName = new Array("ÈÕ","Ò»","¶ş","Èı","ËÄ","Îå","Áù");
-document.write('<div id="divTiannetDate" style="'+s_tiannet_body+'" style="±¾ÈÕÀúÑ¡Ôñ¿Ø¼şÓÉtiannet¸ù¾İÇ°ÈË¾­ÑéÍêÉÆ¶ø³É£¡">');
+// ---------------------- end ç”¨æˆ·å¯è°ƒç”¨çš„å‡½æ•° -----------------------------//
+//------------------ begin é¡µé¢æ˜¾ç¤ºéƒ¨åˆ† ---------------------------//
+var weekName = new Array("æ—¥","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­");
+document.write('<div id="divTiannetDate" style="'+s_tiannet_body+'" style="æœ¬æ—¥å†é€‰æ‹©æ§ä»¶ç”±tiannetæ ¹æ®å‰äººç»éªŒå®Œå–„è€Œæˆï¼">');
 document.write('<div align="center" id="divTiannetDateText" Author="tiannet" style="padding-top:2px;">');
 document.write('<span id="tiannetYearHead" Author="tiannet" style="'+s_tiannet_font+'" '+
-    'onclick="spanYearCEvent();">&nbsp;Äê</span>');
+    'onclick="spanYearCEvent();">&nbsp;å¹´</span>');
 document.write('<select id="selTianYear" style="'+s_tiannet_select+'" Author="tiannet"  '+
     ' onChange="tiannetYear=this.value;tiannetSetDay(tiannetYear,tiannetMonth);document.all.tiannetYearHead.style.display=\'\';'+
     'this.style.display=\'none\';">');
 for(var i=tiannetYearSt;i <= tiannetYearEnd;i ++){
- document.writeln('<option value="' + i + '">' + i + 'Äê</option>');
+ document.writeln('<option value="' + i + '">' + i + 'å¹´</option>');
 }
 document.write('</select>');
 document.write('<span id="tiannetMonthHead" Author="tiannet" style="'+s_tiannet_font+'" '+
-    'onclick="spanMonthCEvent();">&nbsp;&nbsp;ÔÂ</span>');
+    'onclick="spanMonthCEvent();">&nbsp;&nbsp;æœˆ</span>');
 document.write('<select id="selTianMonth" style="'+s_tiannet_select2+'" Author="tiannet" '+
     'onChange="tiannetMonth=this.value;tiannetSetDay(tiannetYear,tiannetMonth);document.all.tiannetMonthHead.style.display=\'\';'+
     'this.style.display=\'none\';">');
 for(var i=1;i <= 12;i ++){
- document.writeln('<option value="' + i + '">' + i + 'ÔÂ</option>');
+ document.writeln('<option value="' + i + '">' + i + 'æœˆ</option>');
 }
 document.write('</select>');
 //document.write('</div>');
 //document.write('<div align="center" id="divTiannetTimeText" Author="tiannet">');
 document.write('<span id="tiannetHourHead" Author="tiannet" style="'+s_tiannet_font+'display:none;" '+
-    'onclick="spanHourCEvent();">&nbsp;Ê±</span>');
+    'onclick="spanHourCEvent();">&nbsp;æ—¶</span>');
 document.write('<select id="selTianHour" style="'+s_tiannet_select2+'display:none;" Author="tiannet" '+
     ' onChange="tiannetHour=this.value;tiannetWriteHead();document.all.tiannetHourHead.style.display=\'\';' +
     'this.style.display=\'none\';">');
 for(var i=0;i <= 23;i ++){
- document.writeln('<option value="' + i + '">' + i + 'Ê±</option>');
+ document.writeln('<option value="' + i + '">' + i + 'æ—¶</option>');
 }
 document.write('</select>');
 document.write('<span id="tiannetMinuteHead" Author="tiannet" style="'+s_tiannet_font+'display:none;" '+
-    'onclick="spanMinuteCEvent();">&nbsp;&nbsp;·Ö</span>');
+    'onclick="spanMinuteCEvent();">&nbsp;&nbsp;åˆ†</span>');
 document.write('<select id="selTianMinute" style="'+s_tiannet_select2+'display:none;" Author="tiannet" '+
     '  onChange="tiannetMinute=this.value;tiannetWriteHead();document.all.tiannetMinuteHead.style.display=\'\';'+
     'this.style.display=\'none\';">');
 for(var i=0;i <= 59;i ++){
- document.writeln('<option value="' + i + '">' + i + '·Ö</option>');
+ document.writeln('<option value="' + i + '">' + i + 'åˆ†</option>');
 }
 document.write('</select>');
 document.write('</div>');
-//Êä³öÒ»ÌõºáÏß
+//è¾“å‡ºä¸€æ¡æ¨ªçº¿
 document.write('<div style="'+s_tiannet_line+'"></div>');
 document.write('<div align="center" id="divTiannetTurn" style="border:0;" Author="tiannet">');
-document.write('<input type="button" style="'+s_tiannet_turn+'" value="Äê¡ü" title="ÉÏÒ»Äê" onClick="tiannetPrevYear();">');
-document.write('<input type="button" style="'+s_tiannet_turn+'" value="Äê¡ı" title="ÏÂÒ»Äê" onClick="tiannetNextYear();">&nbsp;');
-document.write('<input type="button" style="'+s_tiannet_turn+'" value="ÔÂ¡ü" title="ÉÏÒ»ÔÂ" onClick="tiannetPrevMonth();">');
-document.write('<input type="button" style="'+s_tiannet_turn+'" value="ÔÂ¡ı" title="ÏÂÒ»ÔÂ" onClick="tiannetNextMonth();">');
+document.write('<input type="button" style="'+s_tiannet_turn+'" value="å¹´â†‘" title="ä¸Šä¸€å¹´" onClick="tiannetPrevYear();">');
+document.write('<input type="button" style="'+s_tiannet_turn+'" value="å¹´â†“" title="ä¸‹ä¸€å¹´" onClick="tiannetNextYear();">&nbsp;');
+document.write('<input type="button" style="'+s_tiannet_turn+'" value="æœˆâ†‘" title="ä¸Šä¸€æœˆ" onClick="tiannetPrevMonth();">');
+document.write('<input type="button" style="'+s_tiannet_turn+'" value="æœˆâ†“" title="ä¸‹ä¸€æœˆ" onClick="tiannetNextMonth();">');
 document.write('</div>');
-//Êä³öÒ»ÌõºáÏß
+//è¾“å‡ºä¸€æ¡æ¨ªçº¿
 document.write('<div style="'+s_tiannet_line+'"></div>');
 document.write('<table border=0 cellspacing=0 cellpadding=0  bgcolor=white onselectstart="return false">');
 document.write(' <tr style="background-color:#2650A6;font-size:10pt;color:white;height:22px;" Author="tiannet">');
 for(var i =0;i < weekName.length;i ++){
- //Êä³öĞÇÆÚ
+ //è¾“å‡ºæ˜ŸæœŸ
  document.write('<td width="21" align="center" Author="tiannet">' + weekName[i] + '</td>');
 }
 document.write(' </tr>');
 document.write('</table>');
-//Êä³öÌìµÄÑ¡Ôñ
+//è¾“å‡ºå¤©çš„é€‰æ‹©
 document.write('<table border=0 cellspacing=1 cellpadding=0  bgcolor=white onselectstart="return false">');
 var n = 0;
 for (var i=0;i<5;i++) { 
@@ -217,44 +217,44 @@ document.write('<td align="center" id="tdTiannetDay35" onClick="tiannetDay=this.
     +' style="' + s_tiannet_day + '">&nbsp;</td>');
 document.write('<td align="center" id="tdTiannetDay36" onClick="tiannetDay=this.innerText;tiannetSetValue(true);" ' 
     +' style="' + s_tiannet_day + '">&nbsp;</td>');
-document.write('<td align="right" colspan="5"><a href="javascript:tiannetClear();" style="' + s_tiannet_link + '">Çå¿Õ</a>'+
-    '&nbsp;<a href="javascript:tiannetHideControl();" style="' + s_tiannet_link + '">¹Ø±Õ</a>' +
-    '&nbsp;<a href="javascript:tiannetSetValue(true);" style="' + s_tiannet_link + '">È·¶¨</a>&nbsp;' +
+document.write('<td align="right" colspan="5"><a href="javascript:tiannetClear();" style="' + s_tiannet_link + '">æ¸…ç©º</a>'+
+    '&nbsp;<a href="javascript:tiannetHideControl();" style="' + s_tiannet_link + '">å…³é—­</a>' +
+    '&nbsp;<a href="javascript:tiannetSetValue(true);" style="' + s_tiannet_link + '">ç¡®å®š</a>&nbsp;' +
     '</td>');
 document.write (' </tr>');
 document.write('</table>');
 document.write('</div>');
-//------------------ end Ò³ÃæÏÔÊ¾²¿·Ö ---------------------------//
-//------------------ ÏÔÊ¾ÈÕÆÚÊ±¼äµÄspan±êÇ©ÏìÓ¦ÊÂ¼ş ---------------------------//
-//µ¥»÷Äê·İspan±êÇ©ÏìÓ¦
+//------------------ end é¡µé¢æ˜¾ç¤ºéƒ¨åˆ† ---------------------------//
+//------------------ æ˜¾ç¤ºæ—¥æœŸæ—¶é—´çš„spanæ ‡ç­¾å“åº”äº‹ä»¶ ---------------------------//
+//å•å‡»å¹´ä»½spanæ ‡ç­¾å“åº”
 function spanYearCEvent(){
  hideElementsById(new Array("selTianYear","tiannetMonthHead"),false);
  if(m_bolShowHour) hideElementsById(new Array("tiannetHourHead"),false);
  if(m_bolShowMinute) hideElementsById(new Array("tiannetMinuteHead"),false);
  hideElementsById(new Array("tiannetYearHead","selTianMonth","selTianHour","selTianMinute"),true);
 }
-//µ¥»÷ÔÂ·İspan±êÇ©ÏìÓ¦
+//å•å‡»æœˆä»½spanæ ‡ç­¾å“åº”
 function spanMonthCEvent(){
  hideElementsById(new Array("selTianMonth","tiannetYearHead"),false);
  if(m_bolShowHour) hideElementsById(new Array("tiannetHourHead"),false);
  if(m_bolShowMinute) hideElementsById(new Array("tiannetMinuteHead"),false);
  hideElementsById(new Array("tiannetMonthHead","selTianYear","selTianHour","selTianMinute"),true);
 }
-//µ¥»÷Ğ¡Ê±span±êÇ©ÏìÓ¦
+//å•å‡»å°æ—¶spanæ ‡ç­¾å“åº”
 function spanHourCEvent(){
  hideElementsById(new Array("tiannetYearHead","tiannetMonthHead"),false);
  if(m_bolShowHour) hideElementsById(new Array("selTianHour"),false);
  if(m_bolShowMinute) hideElementsById(new Array("tiannetMinuteHead"),false);
  hideElementsById(new Array("tiannetHourHead","selTianYear","selTianMonth","selTianMinute"),true);
 }
-//µ¥»÷·ÖÖÓspan±êÇ©ÏìÓ¦
+//å•å‡»åˆ†é’Ÿspanæ ‡ç­¾å“åº”
 function spanMinuteCEvent(){
  hideElementsById(new Array("tiannetYearHead","tiannetMonthHead"),false);
  if(m_bolShowHour) hideElementsById(new Array("tiannetHourHead"),false);
  if(m_bolShowMinute) hideElementsById(new Array("selTianMinute"),false);
  hideElementsById(new Array("tiannetMinuteHead","selTianYear","selTianMonth","selTianHour"),true);
 }
-//¸ù¾İ±êÇ©idÒş²Ø»òÏÔÊ¾±êÇ©
+//æ ¹æ®æ ‡ç­¾idéšè—æˆ–æ˜¾ç¤ºæ ‡ç­¾
 function hideElementsById(arrId,bolHide){
  var strDisplay = "";
  if(bolHide) strDisplay = "none";
@@ -263,8 +263,8 @@ function hideElementsById(arrId,bolHide){
   obj.style.display = strDisplay;
  }
 }
-//------------------ end ÏÔÊ¾ÈÕÆÚÊ±¼äµÄspan±êÇ©ÏìÓ¦ÊÂ¼ş ---------------------------//
-//ÅĞ¶ÏÄ³ÄêÊÇ·ñÎªÈòÄê
+//------------------ end æ˜¾ç¤ºæ—¥æœŸæ—¶é—´çš„spanæ ‡ç­¾å“åº”äº‹ä»¶ ---------------------------//
+//åˆ¤æ–­æŸå¹´æ˜¯å¦ä¸ºé—°å¹´
 function isPinYear(year){
  var bolRet = false;
  if (0==year%4&&((year%100!=0)||(year%400==0))) {
@@ -272,64 +272,64 @@ function isPinYear(year){
  }
  return bolRet;
 }
-//µÃµ½Ò»¸öÔÂµÄÌìÊı£¬ÈòÄêÎª29Ìì
+//å¾—åˆ°ä¸€ä¸ªæœˆçš„å¤©æ•°ï¼Œé—°å¹´ä¸º29å¤©
 function getMonthCount(year,month){
  var c=m_aMonHead[month-1];
  if((month==2)&&isPinYear(year)) c++;
  return c;
 }
-//ÖØĞÂÉèÖÃµ±Ç°µÄÈÕ¡£Ö÷ÒªÊÇ·ÀÖ¹ÔÚ·­Äê¡¢·­ÔÂÊ±£¬µ±Ç°ÈÕ´óÓÚµ±ÔÂµÄ×î´óÈÕ
+//é‡æ–°è®¾ç½®å½“å‰çš„æ—¥ã€‚ä¸»è¦æ˜¯é˜²æ­¢åœ¨ç¿»å¹´ã€ç¿»æœˆæ—¶ï¼Œå½“å‰æ—¥å¤§äºå½“æœˆçš„æœ€å¤§æ—¥
 function setRealDayCount() {
  if( tiannetDay > getMonthCount(tiannetYear,tiannetMonth) ) {
-  //Èç¹ûµ±Ç°µÄÈÕ´óÓÚµ±ÔÂµÄ×î´óÈÕ£¬ÔòÈ¡µ±ÔÂ×î´óÈÕ
+  //å¦‚æœå½“å‰çš„æ—¥å¤§äºå½“æœˆçš„æœ€å¤§æ—¥ï¼Œåˆ™å–å½“æœˆæœ€å¤§æ—¥
   tiannetDay = getMonthCount(tiannetYear,tiannetMonth);
  }
 }
-//ÔÚ¸öÎ»ÊıÇ°¼ÓÁã
+//åœ¨ä¸ªä½æ•°å‰åŠ é›¶
 function addZero(value){
  if(value < 10 ){
   value = "0" + value;
  }
  return value;
 }
-//È¡³ö¿Õ¸ñ
+//å–å‡ºç©ºæ ¼
 function tiannetTrim(str) {
  return str.replace(/(^\s*)|(\s*$)/g,"");
 }
-//Îªselect´´½¨Ò»¸öoption
+//ä¸ºselectåˆ›å»ºä¸€ä¸ªoption
 function createOption(objSelect,value,text){
  var option = document.createElement("OPTION");
  option.value = value;
  option.text = text;
  objSelect.options.add(option);
 }
-//ÍùÇ°·­ Year
+//å¾€å‰ç¿» Year
 function tiannetPrevYear() {
  if(tiannetYear > 999 && tiannetYear <10000){tiannetYear--;}
- else{alert("Äê·İ³¬³ö·¶Î§£¨1000-9999£©£¡");}
+ else{alert("å¹´ä»½è¶…å‡ºèŒƒå›´ï¼ˆ1000-9999ï¼‰ï¼");}
  tiannetSetDay(tiannetYear,tiannetMonth);
- //Èç¹ûÄê·İĞ¡ÓÚÔÊĞíµÄ×îĞ¡Äê·İ£¬Ôò´´½¨¶ÔÓ¦µÄoption
+ //å¦‚æœå¹´ä»½å°äºå…è®¸çš„æœ€å°å¹´ä»½ï¼Œåˆ™åˆ›å»ºå¯¹åº”çš„option
  if( tiannetYear < tiannetYearSt ) {
   tiannetYearSt = tiannetYear;
-  createOption(document.all.selTianYear,tiannetYear,tiannetYear + "Äê");
+  createOption(document.all.selTianYear,tiannetYear,tiannetYear + "å¹´");
  }
  checkSelect(document.all.selTianYear,tiannetYear);
  tiannetWriteHead();
 }
-//Íùºó·­ Year
+//å¾€åç¿» Year
 function tiannetNextYear() {
  if(tiannetYear > 999 && tiannetYear <10000){tiannetYear++;}
- else{alert("Äê·İ³¬³ö·¶Î§£¨1000-9999£©£¡");return;}
+ else{alert("å¹´ä»½è¶…å‡ºèŒƒå›´ï¼ˆ1000-9999ï¼‰ï¼");return;}
  tiannetSetDay(tiannetYear,tiannetMonth);
- //Èç¹ûÄê·İ³¬¹ıÔÊĞíµÄ×î´óÄê·İ£¬Ôò´´½¨¶ÔÓ¦µÄoption
+ //å¦‚æœå¹´ä»½è¶…è¿‡å…è®¸çš„æœ€å¤§å¹´ä»½ï¼Œåˆ™åˆ›å»ºå¯¹åº”çš„option
  if( tiannetYear > tiannetYearEnd ) {
   tiannetYearEnd = tiannetYear;
-  createOption(document.all.selTianYear,tiannetYear,tiannetYear + "Äê");
+  createOption(document.all.selTianYear,tiannetYear,tiannetYear + "å¹´");
  }
  checkSelect(document.all.selTianYear,tiannetYear);
  tiannetWriteHead();
 }
-//Ñ¡Ôñ½ñÌì
+//é€‰æ‹©ä»Šå¤©
 function tiannetToday() {
  tiannetYear = tiannetDateNow.getFullYear();
  tiannetMonth = tiannetDateNow.getMonth()+1;
@@ -338,50 +338,50 @@ function tiannetToday() {
  //tiannetSetDay(tiannetYear,tiannetMonth);
  //selectObject();
 }
-//ÍùÇ°·­ÔÂ·İ
+//å¾€å‰ç¿»æœˆä»½
 function tiannetPrevMonth() {
  if(tiannetMonth>1){tiannetMonth--}else{tiannetYear--;tiannetMonth=12;}
  tiannetSetDay(tiannetYear,tiannetMonth);
  checkSelect(document.all.selTianMonth,tiannetMonth);
  tiannetWriteHead();
 }
-//Íùºó·­ÔÂ·İ
+//å¾€åç¿»æœˆä»½
 function tiannetNextMonth() {
  if(tiannetMonth==12){tiannetYear++;tiannetMonth=1}else{tiannetMonth++}
  tiannetSetDay(tiannetYear,tiannetMonth);
  checkSelect(document.all.selTianMonth,tiannetMonth);
  tiannetWriteHead();
 }
-//Ïòspan±êÇ©ÖĞĞ´ÈëÄê¡¢ÔÂ¡¢Ê±¡¢·ÖµÈÊı¾İ
+//å‘spanæ ‡ç­¾ä¸­å†™å…¥å¹´ã€æœˆã€æ—¶ã€åˆ†ç­‰æ•°æ®
 function tiannetWriteHead(){
- document.all.tiannetYearHead.innerText = tiannetYear + "Äê";
- document.all.tiannetMonthHead.innerText = tiannetMonth + "ÔÂ";
- if( m_bolShowHour )  document.all.tiannetHourHead.innerText = " "+tiannetHour + "Ê±";
- if( m_bolShowMinute ) document.all.tiannetMinuteHead.innerText = tiannetMinute + "·Ö";
- tiannetSetValue(false);//¸øÎÄ±¾¿ò¸³Öµ£¬µ«²»Òş²Ø±¾¿Ø¼ş
+ document.all.tiannetYearHead.innerText = tiannetYear + "å¹´";
+ document.all.tiannetMonthHead.innerText = tiannetMonth + "æœˆ";
+ if( m_bolShowHour )  document.all.tiannetHourHead.innerText = " "+tiannetHour + "æ—¶";
+ if( m_bolShowMinute ) document.all.tiannetMinuteHead.innerText = tiannetMinute + "åˆ†";
+ tiannetSetValue(false);//ç»™æ–‡æœ¬æ¡†èµ‹å€¼ï¼Œä½†ä¸éšè—æœ¬æ§ä»¶
 }
-//ÉèÖÃÏÔÊ¾Ìì
+//è®¾ç½®æ˜¾ç¤ºå¤©
 function tiannetSetDay(yy,mm) {
   
- setRealDayCount();//ÉèÖÃµ±ÔÂÕæÊµµÄÈÕ
+ setRealDayCount();//è®¾ç½®å½“æœˆçœŸå®çš„æ—¥
  tiannetWriteHead();
- var strDateFont1 = "", strDateFont2 = "" //´¦ÀíÈÕÆÚÏÔÊ¾µÄ·ç¸ñ
- for (var i = 0; i < 37; i++){tiannetArrDay[i]=""};  //½«ÏÔÊ¾¿òµÄÄÚÈİÈ«²¿Çå¿Õ
+ var strDateFont1 = "", strDateFont2 = "" //å¤„ç†æ—¥æœŸæ˜¾ç¤ºçš„é£æ ¼
+ for (var i = 0; i < 37; i++){tiannetArrDay[i]=""};  //å°†æ˜¾ç¤ºæ¡†çš„å†…å®¹å…¨éƒ¨æ¸…ç©º
  var day1 = 1;
- var firstday = new Date(yy,mm-1,1).getDay();  //Ä³ÔÂµÚÒ»ÌìµÄĞÇÆÚ¼¸
+ var firstday = new Date(yy,mm-1,1).getDay();  //æŸæœˆç¬¬ä¸€å¤©çš„æ˜ŸæœŸå‡ 
  for (var i = firstday; day1 < getMonthCount(yy,mm)+1; i++){
   tiannetArrDay[i]=day1;day1++;
  }
- //Èç¹ûÓÃÓÚÏÔÊ¾ÈÕµÄ×îºóÒ»ĞĞµÄµÚÒ»¸öµ¥Ôª¸ñµÄÖµÎª¿Õ£¬ÔòÒş²ØÕûĞĞ¡£
+ //å¦‚æœç”¨äºæ˜¾ç¤ºæ—¥çš„æœ€åä¸€è¡Œçš„ç¬¬ä¸€ä¸ªå•å…ƒæ ¼çš„å€¼ä¸ºç©ºï¼Œåˆ™éšè—æ•´è¡Œã€‚
  //if(tiannetArrDay[35] == ""){
  // document.all.trTiannetDay5.style.display = "none";
  //} else {
  // document.all.trTiannetDay5.style.display = "";
  //}
  for (var i = 0; i < 37; i++){ 
-  var da = eval("document.all.tdTiannetDay"+i)     //ÊéĞ´ĞÂµÄÒ»¸öÔÂµÄÈÕÆÚĞÇÆÚÅÅÁĞ
+  var da = eval("document.all.tdTiannetDay"+i)     //ä¹¦å†™æ–°çš„ä¸€ä¸ªæœˆçš„æ—¥æœŸæ˜ŸæœŸæ’åˆ—
   if (tiannetArrDay[i]!="") { 
-   //ÅĞ¶ÏÊÇ·ñÎªÖÜÄ©£¬Èç¹ûÊÇÖÜÄ©£¬Ôò¸ÄÎªºìÉ«×ÖÌå
+   //åˆ¤æ–­æ˜¯å¦ä¸ºå‘¨æœ«ï¼Œå¦‚æœæ˜¯å‘¨æœ«ï¼Œåˆ™æ”¹ä¸ºçº¢è‰²å­—ä½“
    if(i % 7 == 0 || (i+1) % 7 == 0){
    strDateFont1 = "<font color=#f0000>"
    strDateFont2 = "</font>"
@@ -390,7 +390,7 @@ function tiannetSetDay(yy,mm) {
     strDateFont2 = ""
    }
    da.innerHTML = strDateFont1 + tiannetArrDay[i] + strDateFont2;
-   //Èç¹ûÊÇµ±Ç°Ñ¡ÔñµÄÌì£¬Ôò¸Ä±äÑÕÉ«
+   //å¦‚æœæ˜¯å½“å‰é€‰æ‹©çš„å¤©ï¼Œåˆ™æ”¹å˜é¢œè‰²
    if(tiannetArrDay[i] == tiannetDay ) {
     da.style.backgroundColor = "#CCCCCC";
    } else {
@@ -401,9 +401,9 @@ function tiannetSetDay(yy,mm) {
    da.innerHTML="";da.style.backgroundColor="";da.style.cursor="default"
   }
  }//end for
- tiannetSetValue(false);//¸øÎÄ±¾¿ò¸³Öµ£¬µ«²»Òş²Ø±¾¿Ø¼ş
+ tiannetSetValue(false);//ç»™æ–‡æœ¬æ¡†èµ‹å€¼ï¼Œä½†ä¸éšè—æœ¬æ§ä»¶
 }//end function tiannetSetDay
-//¸ù¾İoptionµÄÖµÑ¡ÖĞoption
+//æ ¹æ®optionçš„å€¼é€‰ä¸­option
 function checkSelect(objSelect,selectValue) {
  var count = parseInt(objSelect.length);
  if( selectValue < 10 && selectValue.toString().length == 2) {
@@ -416,19 +416,19 @@ function checkSelect(objSelect,selectValue) {
   }
  }//for
 }
-//Ñ¡ÖĞÄê¡¢ÔÂ¡¢Ê±¡¢·ÖµÈÏÂÀ­¿ò
+//é€‰ä¸­å¹´ã€æœˆã€æ—¶ã€åˆ†ç­‰ä¸‹æ‹‰æ¡†
 function selectObject(){
- //Èç¹ûÄê·İĞ¡ÓÚÔÊĞíµÄ×îĞ¡Äê·İ£¬Ôò´´½¨¶ÔÓ¦µÄoption
+ //å¦‚æœå¹´ä»½å°äºå…è®¸çš„æœ€å°å¹´ä»½ï¼Œåˆ™åˆ›å»ºå¯¹åº”çš„option
  if( tiannetYear < tiannetYearSt ) {
   for( var i = tiannetYear;i < tiannetYearSt;i ++  ){
-   createOption(document.all.selTianYear,i,i + "Äê");
+   createOption(document.all.selTianYear,i,i + "å¹´");
   }
   tiannetYearSt = tiannetYear;
  }
- //Èç¹ûÄê·İ³¬¹ıÔÊĞíµÄ×î´óÄê·İ£¬Ôò´´½¨¶ÔÓ¦µÄoption
+ //å¦‚æœå¹´ä»½è¶…è¿‡å…è®¸çš„æœ€å¤§å¹´ä»½ï¼Œåˆ™åˆ›å»ºå¯¹åº”çš„option
  if( tiannetYear > tiannetYearEnd ) {
   for( var i = tiannetYearEnd+1;i <= tiannetYear;i ++  ){
-   createOption(document.all.selTianYear,i,i + "Äê");
+   createOption(document.all.selTianYear,i,i + "å¹´");
   }
   tiannetYearEnd = tiannetYear;
  }
@@ -437,8 +437,8 @@ function selectObject(){
  if( m_bolShowHour )  checkSelect(document.all.selTianHour,tiannetHour);
  if( m_bolShowMinute ) checkSelect(document.all.selTianMinute,tiannetMinute);
 }
-//¸ø½ÓÊÜÈÕÆÚÊ±¼äµÄ¿Ø¼ş¸³Öµ
-//²ÎÊıbolHideControl - ÊÇ·ñÒş²Ø¿Ø¼ş
+//ç»™æ¥å—æ—¥æœŸæ—¶é—´çš„æ§ä»¶èµ‹å€¼
+//å‚æ•°bolHideControl - æ˜¯å¦éšè—æ§ä»¶
 function tiannetSetValue(bolHideControl){
  var value = "";
  if( !tiannetDay || tiannetDay == "" ){
@@ -466,25 +466,25 @@ function tiannetSetValue(bolHideControl){
   tiannetHideControl();
  }
 }
-//ÊÇ·ñÏÔÊ¾Ê±¼ä
+//æ˜¯å¦æ˜¾ç¤ºæ—¶é—´
 function showTime(){
  if( !m_bolShowHour && m_bolShowMinute){
-  alert("Èç¹ûÒªÑ¡Ôñ·ÖÖÓ£¬Ôò±ØĞë¿ÉÒÔÑ¡ÔñĞ¡Ê±£¡");
+  alert("å¦‚æœè¦é€‰æ‹©åˆ†é’Ÿï¼Œåˆ™å¿…é¡»å¯ä»¥é€‰æ‹©å°æ—¶ï¼");
   return;
  }
  hideElementsById(new Array("tiannetHourHead","selTianHour","tiannetMinuteHead","selTianMinute"),true);
  if( m_bolShowHour ){
-  //ÏÔÊ¾Ğ¡Ê±
+  //æ˜¾ç¤ºå°æ—¶
   hideElementsById(new Array("tiannetHourHead"),false);
  }
  if( m_bolShowMinute ){
-  //ÏÔÊ¾·ÖÖÓ
+  //æ˜¾ç¤ºåˆ†é’Ÿ
   hideElementsById(new Array("tiannetMinuteHead"),false);
  }
 }
-//µ¯³öÏÔÊ¾ÈÕÀúÑ¡Ôñ¿Ø¼ş£¬ÒÔÈÃÓÃ»§Ñ¡Ôñ
+//å¼¹å‡ºæ˜¾ç¤ºæ—¥å†é€‰æ‹©æ§ä»¶ï¼Œä»¥è®©ç”¨æˆ·é€‰æ‹©
 function tiannetPopCalendar(){
- //Òş²ØÏÂÀ­¿ò£¬ÏÔÊ¾Ïà¶ÔÓ¦µÄhead
+ //éšè—ä¸‹æ‹‰æ¡†ï¼Œæ˜¾ç¤ºç›¸å¯¹åº”çš„head
  hideElementsById(new Array("selTianYear","selTianMonth","selTianHour","selTianMinute"),true);
  hideElementsById(new Array("tiannetYearHead","tiannetMonthHead","tiannetHourHead","tiannetMinuteHead"),false);
  tiannetSetDay(tiannetYear,tiannetMonth);
@@ -495,14 +495,14 @@ function tiannetPopCalendar(){
   
  var h = document.all.divTiannetDate.offsetHeight;
  var w = document.all.divTiannetDate.offsetWidth;
- //¼ÆËãleft
+ //è®¡ç®—left
  if (window.event.x + h > document.body.offsetWidth - 10    )
   iX = window.event.x - h - 5 ;
  else
   iX = window.event.x + 5;  
  if (iX <0)  
   iX=0;
- //¼ÆËãtop
+ //è®¡ç®—top
  iY = window.event.y;
  if (window.event.y + w > document.body.offsetHeight - 10   )
   iY = document.body.scrollTop + document.body.offsetHeight - w - 5 ;
@@ -515,19 +515,19 @@ function tiannetPopCalendar(){
  tiannetShowControl();
  selectObject();
 }
-//Òş²ØÈÕÀú¿Ø¼ş(Í¬Ê±ÏÔÊ¾±»Ç¿ÖÆÒş²ØµÄ±êÇ©)
+//éšè—æ—¥å†æ§ä»¶(åŒæ—¶æ˜¾ç¤ºè¢«å¼ºåˆ¶éšè—çš„æ ‡ç­¾)
 function tiannetHideControl(){
  document.all.divTiannetDate.style.display = "none";
  tiannetShowObject();
- arrTiannetHide = new Array();//½«±»Òş²ØµÄ±êÇ©¶ÔÏóÇå¿Õ
+ arrTiannetHide = new Array();//å°†è¢«éšè—çš„æ ‡ç­¾å¯¹è±¡æ¸…ç©º
 }
-//ÏÔÊ¾ÈÕÀú¿Ø¼ş(Í¬Ê±Òş²Ø»áÕÚµ²µÄ±êÇ©)
+//æ˜¾ç¤ºæ—¥å†æ§ä»¶(åŒæ—¶éšè—ä¼šé®æŒ¡çš„æ ‡ç­¾)
 function tiannetShowControl(){
  document.all.divTiannetDate.style.display = "";
  tiannetHideObject("SELECT");
  tiannetHideObject("OBJECT");
 }
-//¸ù¾İ±êÇ©Ãû³ÆÒş²Ø±êÇ©¡£Èç»áÕÚ×¡¿Ø¼şµÄselect£¬object
+//æ ¹æ®æ ‡ç­¾åç§°éšè—æ ‡ç­¾ã€‚å¦‚ä¼šé®ä½æ§ä»¶çš„selectï¼Œobject
 function tiannetHideObject(strTagName) {
  
  x = document.all.divTiannetDate.offsetLeft;
@@ -541,7 +541,7 @@ function tiannetHideObject(strTagName) {
   var obj = document.all.tags(strTagName)[i];
   if (! obj || ! obj.offsetParent)
    continue;
-  // »ñÈ¡ÔªËØ¶ÔÓÚBODY±ê¼ÇµÄÏà¶Ô×ø±ê
+  // è·å–å…ƒç´ å¯¹äºBODYæ ‡è®°çš„ç›¸å¯¹åæ ‡
   var objLeft   = obj.offsetLeft;
   var objTop    = obj.offsetTop;
   var objHeight = obj.offsetHeight;
@@ -553,15 +553,15 @@ function tiannetHideObject(strTagName) {
    objTop   += objParent.offsetTop;
    objParent = objParent.offsetParent;
   }
-  //alert("¿Ø¼ş×ó¶Ë:" + x + "select×ó¶Ë" + (objLeft + objWidth) + "¿Ø¼şµ×²¿:" + (y+h) + "select¸ß:" + objTop);
+  //alert("æ§ä»¶å·¦ç«¯:" + x + "selectå·¦ç«¯" + (objLeft + objWidth) + "æ§ä»¶åº•éƒ¨:" + (y+h) + "selecté«˜:" + objTop);
   
   var bolHide = true;
   if( obj.style.display == "none" || obj.style.visibility == "hidden" || obj.getAttribute("Author") == "tiannet" ){
-   //Èç¹û±êÇ©±¾Éí¾ÍÊÇÒş²ØµÄ£¬Ôò²»ĞèÒªÔÙÒş²Ø¡£Èç¹ûÊÇ¿Ø¼şÖĞµÄÏÂÀ­¿ò£¬Ò²²»ÓÃÒş²Ø¡£
+   //å¦‚æœæ ‡ç­¾æœ¬èº«å°±æ˜¯éšè—çš„ï¼Œåˆ™ä¸éœ€è¦å†éšè—ã€‚å¦‚æœæ˜¯æ§ä»¶ä¸­çš„ä¸‹æ‹‰æ¡†ï¼Œä¹Ÿä¸ç”¨éšè—ã€‚
    bolHide = false;
   }
   if(  ( (objLeft + objWidth) > x && (y + h + 20) > objTop && (objTop+objHeight) >  y && objLeft < (x+w) ) && bolHide ){
-   //arrTiannetHide.push(obj);//¼ÇÂ¼±»Òş²ØµÄ±êÇ©¶ÔÏó
+   //arrTiannetHide.push(obj);//è®°å½•è¢«éšè—çš„æ ‡ç­¾å¯¹è±¡
    arrTiannetHide[arrTiannetHide.length] = obj;
    obj.style.visibility = "hidden";
   }
@@ -569,34 +569,34 @@ function tiannetHideObject(strTagName) {
   
  }
 }
-//ÏÔÊ¾±»Òş²ØµÄ±êÇ©
+//æ˜¾ç¤ºè¢«éšè—çš„æ ‡ç­¾
 function tiannetShowObject(){
  for(var i = 0;i < arrTiannetHide.length;i ++){
   //alert(arrTiannetHide[i]);
   arrTiannetHide[i].style.visibility = "";
  }
 }
-//³õÊ¼»¯ÈÕÆÚ¡£
+//åˆå§‹åŒ–æ—¥æœŸã€‚
 function tiannetInitDate(strDate){
  var arr = strDate.split(tiannetDateSplit);
  tiannetYear = arr[0];
  tiannetMonth = arr[1];
  tiannetDay = arr[2];
 }
-//Çå¿Õ
+//æ¸…ç©º
 function tiannetClear(){
  tiannetOutObject.value = "";
  tiannetHideControl();
 }
- //ÈÎÒâµã»÷Ê±¹Ø±Õ¸Ã¿Ø¼ş
-function document.onclick(){ 
+ //ä»»æ„ç‚¹å‡»æ—¶å…³é—­è¯¥æ§ä»¶
+document.body.onclick = function(){ 
   with(window.event.srcElement){ 
  if (tagName != "INPUT" && getAttribute("Author") != "tiannet")
     tiannetHideControl();
   }
 }
-//°´ESC¼ü¹Ø±Õ¸Ã¿Ø¼ş
-function document.onkeypress(){
+//æŒ‰ESCé”®å…³é—­è¯¥æ§ä»¶
+document.body.onkeypress = function(){
  if( event.keyCode == 27 ){
   tiannetHideControl();
  }
