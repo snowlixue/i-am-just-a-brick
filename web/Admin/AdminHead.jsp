@@ -1,116 +1,60 @@
 <%@page contentType="text/html;charset=GBK"%>
 <%
-  //String baseUrl = "http://" + request.getRemoteHost() + ":" + request.getRemotePort() + "/SuperMarket";
+    //String baseUrl = "http://" + request.getRemoteHost() + ":" + request.getRemotePort() + "/SuperMarket";
 %>
 <!--BEGIN HEADER MODULE-->
-<script>
-	var linksrcTop;
-	var linksrcLeft;
-	var linksrcH;
-	var linksrcW;
-	var isShow = false;
-	var mArray;
-	var mArrayURL;
+<table id="Table2" cellSpacing="0" cellPadding="0" border="0">
+    <tr>
+        <td>
+            <div id="outer">
 
-	function showMenu(menu,tableW)
-	{
-		switch (menu)
-		{
-			case '1' :mArray = new Array('');mArrayURL = new Array('');break;
-			case '2' :mArray = new Array('ÉÌÆ·Àà±ğ¹ÜÀí','Ìí¼ÓÉÌÆ·ĞÅÏ¢','ÉÌÆ·ĞÅÏ¢Î¬»¤');mArrayURL = new Array('../GoodInfo/GoodClassManage.jsp','../GoodInfo/GoodInfoAdd.jsp','../GoodInfo/GoodInfoManage?action=query');break;
-			case '3' :mArray = new Array('Ìí¼ÓÔ±¹¤ĞÅÏ¢','Ô±¹¤ĞÅÏ¢Î¬»¤');mArrayURL = new Array('EmployeeInfoAdd.jsp','EmployeeInfoManage?action=query');break;
-			case '4' :mArray = new Array('ÉÌÆ·½ø»õµÇ¼Ç','ÉÌÆ·½ø»õ²éÑ¯','½ø»õÍË»õµÇ¼Ç','½ø»õÍË»õ²éÑ¯');mArrayURL = new Array('../BuyInfo/BuyInfoAdd.jsp','../BuyInfo/BuyInfoManage?action=query','../BuyBackInfo/BuyBackInfoAdd.jsp','../BuyBackInfo/BuyBackInfoManage?action=query');break;
-			case '5' :mArray = new Array('ÉÌÆ·ÏúÊÛ²éÑ¯','Ô±¹¤Òµ¼¨²éÑ¯','¹Ë¿ÍÍË»õ°ìÀí','ÉÌÆ·ÍË»õ²éÑ¯');mArrayURL = new Array('../SellInfo/SellInfoQuery.jsp','../SellInfo/EmployeeSellResult.jsp','../SellBackInfo/SellBackInfoAdd.jsp','../SellBackInfo/SellBackInfoQuery.jsp');break;
-			case '6' :mArray = new Array('ÉÌÆ·¿â´æ²éÑ¯','ÉÌÆ·¿â´æ±¨¾¯');mArrayURL = new Array('../GoodStockInfo/GoodStockQuery.jsp','../GoodStockInfo/GoodStockManage?action=warning');break;
-			case '7' :mArray = new Array('¹©Ó¦ÉÌ¹ÜÀí','ĞŞ¸ÄÃÜÂë','¹ØÓÚÏµÍ³');mArrayURL = new Array('SupplierManage.jsp','changePassword.jsp','../about.html');break;
-		}
-		
-		if( mArray !=null )
-		{
-			var linksrc = window.event.srcElement;
-			linksrcTop = linksrc.offsetTop;
-			linksrcLeft = linksrc.offsetLeft;
-			linksrcH = linksrc.offsetHeight;
-			linksrcW = linksrc.offsetWidth;
-			linksrcParent = linksrc.offsetParent;
-			while(linksrcParent.tagName.toUpperCase()!="BODY")
-			{
-				linksrcTop += parseInt(linksrcParent.offsetTop);
-				linksrcLeft += parseInt(linksrcParent.offsetLeft);
-				linksrcParent = linksrcParent.offsetParent;
-			}
-			mdiv = document.all.menuDiv;
-			mdiv.style.left = linksrcLeft + 8;
-			mdiv.style.top = linksrcTop + linksrcH; 
+                <ul id="menu">
+                    <li class="sub">å•†å“ä¿¡æ¯ç®¡ç†
+                        <ul>
+                            <li><a href="../GoodInfo/GoodClassManage.jsp"  target='ContentFrame'>å•†å“ç±»åˆ«ç®¡ç†</a></li>
+                            <li><a href="../GoodInfo/GoodInfoAdd.jsp"  target='ContentFrame'>æ·»åŠ å•†å“ä¿¡æ¯</a></li>
+                            <li><a href="../GoodInfo/GoodInfoManage?action=query" target='ContentFrame'>å•†å“ä¿¡æ¯ç»´æŠ¤</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub">å‘˜å·¥ä¿¡æ¯ç®¡ç†
+                        <ul>
+                            <li><a href="EmployeeInfoAdd.jsp"  target='ContentFrame'>æ·»åŠ å‘˜å·¥ä¿¡æ¯</a></li>
+                            <li><a href="EmployeeInfoManage?action=query"  target='ContentFrame'>å‘˜å·¥ä¿¡æ¯ç»´æŠ¤</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub">å•†å“è¿›è´§ç®¡ç†
+                        <ul>
+                            <li><a href="../BuyInfo/BuyInfoAdd.jsp"  target='ContentFrame'>å•†å“è¿›è´§ç™»è®°</a></li>
+                            <li><a href="../BuyInfo/BuyInfoManage?action=query"  target='ContentFrame'>å•†å“è¿›è´§æŸ¥è¯¢</a></li>
+                            <li><a href="../BuyBackInfo/BuyBackInfoAdd.jsp"  target='ContentFrame'>è¿›è´§é€€è´§ç™»è®°</a></li>
+                            <li><a href="../BuyBackInfo/BuyBackInfoManage?action=query"  target='ContentFrame'>è¿›è´§é€€è´§æŸ¥è¯¢</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub">å•†å“é”€å”®ç®¡ç†
+                        <ul>
+                            <li><a href="../SellInfo/SellInfoQuery.jsp"  target='ContentFrame'>å•†å“é”€å”®æŸ¥è¯¢</a></li>
+                            <li><a href="../SellInfo/EmployeeSellResult.jsp"  target='ContentFrame'>å‘˜å·¥ä¸šç»©æŸ¥è¯¢</a></li>
+                            <li><a href="../SellBackInfo/SellBackInfoAdd.jsp"  target='ContentFrame'>é¡¾å®¢é€€è´§åŠç†</a></li>
+                            <li><a href="../SellBackInfo/SellBackInfoQuery.jsp"  target='ContentFrame'>å•†å“é€€è´§æŸ¥è¯¢</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub">å•†å“åº“å­˜ç®¡ç†
+                        <ul>
+                            <li><a href="../GoodStockInfo/GoodStockQuery.jsp"  target='ContentFrame'>å•†å“åº“å­˜æŸ¥è¯¢</a></li>
+                            <li><a href="../GoodStockInfo/GoodStockManage?action=warning"  target='ContentFrame'>å•†å“åº“å­˜æŠ¥è­¦</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub">ç³»ç»Ÿç®¡ç†
+                        <ul>
+                            <li><a href="SupplierManage.jsp"  target='ContentFrame'>ä¾›åº”å•†ç®¡ç†</a></li>
+                            <li><a href="changePassword.jsp"  target='ContentFrame'>ä¿®æ”¹å¯†ç </a></li>
+                            <li><a href="../about.html"  target='ContentFrame'>å…³äºç³»ç»Ÿ</a></li>
+                            <li><a href="../logout.jsp"  target='ContentFrame'>é€€å‡º</a></li>
+                        </ul>
+                    </li>
 
-			text ="<table width='96' border='0' cellpadding='3' cellspacing='0' bgcolor='e8e8e8' class='tbl'>";
-			for(var i=0;i<mArray.length;i++)
-			{
-				text += "<tr>";
-				if(i==mArray.length-1)
-				{
-					text += "<td align='center'>";
-				}
-				else
-				{
-					text += "<td align='center' class='bottom'>";
-				}
-				if (menu == "7" && i == 1)
-				{
-					text+="<a href='#' onclick=MM_CenterWindow('" +  mArrayURL[i] + "',400,250)>" + mArray[i];
-				}
-				else
-				{
-					text+="<a href='" + mArrayURL[i] + "' target='ContentFrame'>" + mArray[i];
-				}
-				text+="</a></td></tr>";
-			}
-			text +="</table>"; 
-			mdiv.innerHTML = text;
-			mdiv.style.visibility="visible";
-			isShow = true;
-		}
-	}
-
-	function hiddenMenu()
-	{
-		if (isShow == true)
-		{
-			var mx = document.body.scrollLeft + window.event.clientX;
-			var my = document.body.scrollTop + window.event.clientY;
-			mdiv=document.all.menuDiv;
-			mdivT = parseInt(mdiv.style.top);
-			mdivL = parseInt(mdiv.style.left);
-			mdivH = parseInt(mdiv.offsetHeight);
-			mdivW = parseInt(mdiv.offsetWidth);
-			
-			if(mx < mdivL || mx > mdivL + mdivW || my < linksrcTop || my > linksrcTop + linksrcH + mdivH)
-			{
-				mdiv.style.visibility = "hidden";isShow = false;
-			}							
-		}
-	}	    
-</script>
-<!--   ²Ëµ¥²ã   -->
-<div id="menuDiv" style="VISIBILITY: hidden; POSITION: absolute">
-</div>
-<!--   ²Ëµ¥²ã   -->
-<table class="tbl" id="Table2" cellSpacing="0" cellPadding="0" width="760" border="0">
-	<tr>
-		<td background="../images/titl_bg.jpg" height="26" align="right">
-			<!--   µ¼º½³¬Á´½Ó    --> &nbsp;&nbsp; 
-			<A href="index.jsp"%><font color="#ffffff">Ê×Ò³</font></A>&nbsp;<font color="#ffffff">©®</font>
-			<a onclick="showMenu('2',100)" style="COLOR: black" href="#"><font color="#ffffff">ÉÌÆ·ĞÅÏ¢¹ÜÀí</font></a>&nbsp;<font color="#ffffff">©®</font>&nbsp; 
-			<A onclick="showMenu('3',100)" style="COLOR: black" href="#"><font color="#ffffff">Ô±¹¤ĞÅÏ¢¹ÜÀí</font></A>&nbsp;<font color="#ffffff">©®</font>&nbsp;
-			<A onclick="showMenu('4',100)" style="COLOR: black" href="#"><font color="#ffffff">ÉÌÆ·½ø»õ¹ÜÀí</font></A>&nbsp;<font color="#ffffff">©®</font>&nbsp;
-			<A onclick="showMenu('5',100)" style="COLOR: black" href="#"><font color="#ffffff">ÉÌÆ·ÏúÊÛ¹ÜÀí</font></A>&nbsp;<font color="#ffffff">©®</font>&nbsp;
-			<A onclick="showMenu('6',100)" style="COLOR: black" href="#"><font color="#ffffff">ÉÌÆ·¿â´æ¹ÜÀí</font></A>&nbsp;<font color="#ffffff">©®</font>&nbsp;
-			<A onclick="showMenu('7',100)" style="COLOR: black" href="#"><font color="#ffffff">ÏµÍ³¹ÜÀí</font></A>&nbsp;<font color="#ffffff">©®</font>&nbsp; 
-			<A style="COLOR: black" href='../logout.jsp' onclick="javascript:return confirm('È·¶¨ÍË³öÂğ?');"><font color="#ffffff">ÍË ³ö</font></A> &nbsp;&nbsp; 
-			<!--   //µ¼º½Ö÷²Ëµ¥   --></td>
-	</tr>
-	<tr>
-		<td align="center"><IMG src='../images/title.jpg'></td>
-	</tr>
+                </ul>
+            </div>
+        </td>
+    </tr>
 </table>
-
